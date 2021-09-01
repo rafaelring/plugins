@@ -9,7 +9,7 @@ import (
 	"github.com/go-flutter-desktop/go-flutter/plugin"
 )
 
-const channelName = "flutter.io/videoPlayer"
+const channelName = "dev.flutter.pigeon.VideoPlayerApi"
 
 // VideoPlayerPlugin implements flutter.Plugin and handles the host side of
 // the official Dart Video Player plugin for Flutter.
@@ -27,7 +27,7 @@ func (p *VideoPlayerPlugin) InitPlugin(messenger plugin.BinaryMessenger) error {
 	p.messenger = messenger
 	p.videoPlayers = make(map[int32]*player)
 	channel := plugin.NewMethodChannel(messenger, channelName, plugin.StandardMethodCodec{})
-	channel.HandleFunc("init", func(_ interface{}) (interface{}, error) { return nil, nil })
+	channel.HandleFunc("initialize", func(_ interface{}) (interface{}, error) { return nil, nil })
 	channel.HandleFunc("create", p.create)
 	channel.HandleFunc("play", p.play)
 	channel.HandleFunc("pause", p.pause)

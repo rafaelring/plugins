@@ -1,4 +1,4 @@
-module github.com/go-flutter-desktop/plugins/video_player
+module github.com/rafaelring/plugins/video_player
 
 go 1.13
 
